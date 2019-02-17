@@ -57,6 +57,5 @@ export function check(stdin) {
                 reject(error);
             });
         });
-
     });
 }
