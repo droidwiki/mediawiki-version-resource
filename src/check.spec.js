@@ -42,11 +42,11 @@ describe('check script', () => {
         process.stdout.write = jest.fn();
 
         check(stdin).then(() => {
-            expect(process.stdout.write).toHaveBeenCalledWith('["wmf/1.33.0-wmf.17"]');
+            expect(process.stdout.write).toHaveBeenCalledWith('[{"git-branch":"wmf/1.33.0-wmf.17"}]');
             done();
         });
 
-        stdin.push('{"version": "wmf/1.33.0-wmf.17", "source": {"mediawikiUrl": "http://localhost:' + port + '"}}\n');
+        stdin.push('{"version": {"git-branch": "wmf/1.33.0-wmf.17"}, "source": {"mediawikiUrl": "http://localhost:' + port + '"}}\n');
     });
 
     it('should return empty list if no versions available', (done) => {
@@ -65,7 +65,7 @@ describe('check script', () => {
         response = JSON.stringify({"batchcomplete": true, "query": {"general": {"git-branch": "wmf/1.33.0-wmf.18"}}});
 
         check(stdin).then(() => {
-            expect(process.stdout.write).toHaveBeenCalledWith('["wmf/1.33.0-wmf.18"]');
+            expect(process.stdout.write).toHaveBeenCalledWith('[{"git-branch":"wmf/1.33.0-wmf.18"}]');
             done();
         });
 

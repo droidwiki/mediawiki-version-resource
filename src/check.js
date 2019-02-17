@@ -26,7 +26,7 @@ export function check(stdin) {
             }
 
             const discoveredVersions = [];
-            if (input.version) {
+            if (input.version && input.version['git-branch']) {
                 discoveredVersions.push(input.version);
             }
             const url = new URL(apiRequestPath, new URL(input.source.mediawikiUrl));
@@ -46,8 +46,8 @@ export function check(stdin) {
                         process.stdout.write(JSON.stringify([]));
                         resolve();
                     }
-                    const version = apiResponse.query.general['git-branch'];
-                    if (!discoveredVersions.includes(version)) {
+                    const version = {'git-branch': apiResponse.query.general['git-branch']};
+                    if (!discoveredVersions.find((registeredVersion) => registeredVersion['git-branch'] === version['git-branch'])) {
                         discoveredVersions.push(version);
                     }
                     process.stdout.write(JSON.stringify(discoveredVersions));
