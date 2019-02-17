@@ -1,0 +1,28 @@
+{
+  "name": "mediawiki-version-resource",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest",
+    "prebuild": "rimraf ./build",
+    "build": "npm test && babel -d ./build ./src"
+  },
+  "author": "Florian Schmidt",
+  "license": "MIT",
+  "devDependencies": {
+    "rimraf": "^2.6.3",
+    "@babel/core": "^7.3.3",
+    "@babel/cli": "^7.2.3",
+    "@babel/preset-env": "^7.3.1",
+    "babel-jest": "^24.1.0",
+    "jest": "^24.1.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/build/"
+    ]
+  },
+  "dependencies": {
+    "request-promise-native": "^1.0.7"
+  }
+}
