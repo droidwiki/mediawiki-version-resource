@@ -9,12 +9,12 @@
   "author": "Florian Schmidt",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "babel-jest": "^24.9.0",
-    "jest": "^24.9.0",
-    "rimraf": "^3.0.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "babel-jest": "^25.1.0",
+    "jest": "^25.1.0",
+    "rimraf": "^3.0.2",
     "tmp": "0.1.0"
   },
   "jest": {
@@ -24,6 +24,6 @@
     ]
   },
   "dependencies": {
-    "request-promise-native": "^1.0.7"
+    "request-promise-native": "^1.0.8"
   }
 }
